@@ -3,6 +3,9 @@ const form = document.getElementById('expense-form');
 const expenseList = document.getElementById('expense-list');
 const totalEl = document.getElementById('total');
 const monthlyTotalEl = document.getElementById('monthly-total');
+const categoryCountEl = document.getElementById('category-count');
+const averageExpenseEl = document.getElementById('average-expense');
+const topCategoryEl = document.getElementById('top-category');
 const categorySummaryEl = document.getElementById('category-summary');
 const clearAllButton = document.getElementById('clear-all');
 const tabButtons = document.querySelectorAll('.tab-btn');
@@ -73,10 +76,18 @@ function renderSummary() {
   totalEl.textContent = formatCurrency(total);
   monthlyTotalEl.textContent = formatCurrency(monthlyTotal);
 
+  const categories = Array.from(new Set(expenses.map((item) => item.category)));
+  const averageExpense = expenses.length ? total / expenses.length : 0;
+  categoryCountEl.textContent = categories.length;
+  averageExpenseEl.textContent = formatCurrency(averageExpense);
+
   const grouped = expenses.reduce((acc, item) => {
     acc[item.category] = (acc[item.category] || 0) + Number(item.amount);
     return acc;
   }, {});
+
+  const topCategory = Object.entries(grouped).sort((a, b) => b[1] - a[1])[0];
+  topCategoryEl.textContent = topCategory ? `${topCategory[0]} (${formatCurrency(topCategory[1])})` : '-';
 
   const entries = Object.entries(grouped);
 

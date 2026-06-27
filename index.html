@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker</title>
+    <title>Kavi-ET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="app">
       <header class="hero">
         <div>
-          <h1>Expense Tracker</h1>
+          <h1>Kavi-ET</h1>
           <p>Keep your spending in view and manage it locally.</p>
         </div>
         <div class="tabs" role="tablist" aria-label="Main views">
@@ -30,6 +33,18 @@
             <div class="summary-card">
               <span>This Month</span>
               <strong id="monthly-total">₹0.00</strong>
+            </div>
+            <div class="summary-card">
+              <span>Categories</span>
+              <strong id="category-count">0</strong>
+            </div>
+            <div class="summary-card">
+              <span>Average Expense</span>
+              <strong id="average-expense">₹0.00</strong>
+            </div>
+            <div class="summary-card">
+              <span>Top Category</span>
+              <strong id="top-category">-</strong>
             </div>
           </div>
           <div class="chart-row">

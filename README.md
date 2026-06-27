@@ -1,8 +1,8 @@
-# Expense Tracker
+# Kavi-ET
 
 A simple local expense tracker built with HTML, CSS, and JavaScript.
 
-## How to start the program
+## How to start locally
 
 1. Open a terminal in this folder.
 2. Run one of the following commands:
@@ -14,6 +14,21 @@ A simple local expense tracker built with HTML, CSS, and JavaScript.
      ```bash
      python -m http.server 8000
      ```
+3. Open your browser and go to:
+   ```text
+   http://localhost:8000/
+   ```
+
+## How to run in Docker
+
+1. Build the Docker image:
+   ```bash
+   docker build -t kavi-et .
+   ```
+2. Run the container:
+   ```bash
+   docker run --rm -p 8000:80 kavi-et
+   ```
 3. Open your browser and go to:
    ```text
    http://localhost:8000/
